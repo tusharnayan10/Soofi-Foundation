@@ -24,7 +24,12 @@ app.get("/inner-page", (req, res) => {
     res.render("inner-page");
 });
 
-const PORT = 3000 || process.env.PORT;
-app.listen(PORT, function () {
-    console.log("Server running on port " + PORT);
+
+let port = process.env.PORT;
+if (port == "" || port == null) {
+    port = 3000;
+}
+
+app.listen(port, function () {
+    console.log("Server running on port : 3000 ");
 });
